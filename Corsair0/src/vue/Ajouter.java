@@ -41,7 +41,7 @@ public class Ajouter extends PanelCentral implements ActionListener {
 		this.add(new JLabel("Nom : "));
 		this.add(this.txtNom);
 		
-		this.add(new JLabel("Prénom: "));
+		this.add(new JLabel("PrÃ©nom: "));
 		this.add(this.txtPrenom);
 		
 		this.add(new JLabel("Adresse : "));
@@ -50,7 +50,7 @@ public class Ajouter extends PanelCentral implements ActionListener {
 		this.add(new JLabel("Email : "));
 		this.add(this.txtEmail);
 		
-		this.add(new JLabel("Numéro de Passeport : "));
+		this.add(new JLabel("NumÃ©ro de Passeport : "));
 		this.add(this.txtNumero_passeport);
 		
 		this.add(new JLabel("Telephone : "));
@@ -90,14 +90,14 @@ public class Ajouter extends PanelCentral implements ActionListener {
 					);
 			
 			Corsair.insertClient(unClient);
-			JOptionPane.showMessageDialog(this,"Insertion réussie");
-			//mise à jouer de la JTable via le Tableau
+			JOptionPane.showMessageDialog(this,"Insertion rÃ©ussie");
+			//mise Ã  jouer de la JTable via le Tableau
 			
 			Object [] ligne = {this.txtIdClient.getText(), this.txtNom.getText(), this.txtPrenom.getText(), 
 					this.txtAdresse.getText(), this.txtEmail.getText(),this.txtNumero_passeport.getText(),
 					this.txtTel.getText(), this.txtMdp.getText(), this.txtAge.getText()};
 			
-			Generale.getLister().getTableau().ajouterLigne(ligne);
+			Generale.getUnLister().getTableau().ajouterLigne(ligne);
 			
 			/********************************************************************/
 			this.txtIdClient.setText("");
@@ -110,25 +110,10 @@ public class Ajouter extends PanelCentral implements ActionListener {
 			this.txtMdp.setText("");
 			this.txtAge.setText("");
 			this.setVisible(false);
-		} else
+		}else
 		{
 			JOptionPane.showMessageDialog(this, "Attention aux mot de passe !");
 			
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
