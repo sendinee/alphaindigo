@@ -35,6 +35,10 @@ public class Generale extends JFrame
 		
 		this.setVisible(true);
 	}
+	private void add(PanelProfil unPanelProfil) {
+		// TODO Auto-generated method stub
+		
+	}
 	public static void setVisibleProfil(boolean action)
 	{
 		Generale.unPanelProfil.setVisible(action);
@@ -67,5 +71,9 @@ public class Generale extends JFrame
 	}
 	public static void setUnPanelClient(PanelClient unPanelClient) {
 		Generale.unPanelClient = unPanelClient;
+	}
+	public static PanelClient getUnLister() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
