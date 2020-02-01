@@ -18,7 +18,7 @@ import controleur.Corsair;
 import controleur.Tableau;
 
 
-public class PanelLogement extends PanelCentral implements ActionListener {
+public class PanelHebergement extends PanelCentral implements ActionListener {
 	
 	/*Ajouter*/
 	private JTextField txtidservice = new JTextField();
@@ -33,7 +33,7 @@ public class PanelLogement extends PanelCentral implements ActionListener {
 	private JButton btEnregistrer = new JButton("Enregistrer");
 	private JButton btAnnuler = new JButton("Annuler");
 	
-	public PanelLogement() {
+	public PanelHebergement() {
 		super(Color.cyan);
 		
 		this.setLayout(new GridLayout(5,2));
@@ -83,13 +83,13 @@ public class PanelLogement extends PanelCentral implements ActionListener {
 		}
 		
 		{
-			Logement unLogement = new Logement (
+			Hebergement unHebergement = new Hebergement (
 					this.txtidservice.getText(), this.txtadresse.getText(), this.txtdatedebut.getText(), 
 					this.txtdatefin.getText(), this.txtnettoyage.getText(),this.txtproprietaire.getText(),
 					this.txtsurface.getText(), this.txtprix.getText()
 					);
 			
-			Corsair.insertLogement(unLogement);
+			Corsair.insertHebergement(unHebergement);
 			JOptionPane.showMessageDialog(this,"Insertion réussie");
 			//mise à jouer de la JTable via le Tableau
 			
@@ -97,7 +97,7 @@ public class PanelLogement extends PanelCentral implements ActionListener {
 					this.txtdatefin.getText(), this.txtnettoyage.getText(),this.txtproprietaire.getText(),
 					this.txtsurface.getText(), this.txtprix.getText()};
 			
-			Generale.getLister().getTableau().ajouterLigne(ligne);
+			Generale.getUnLister().getTableau().ajouterLigne(ligne);
 			
 			/********************************************************************/
 			this.txtidservice.setText("");
@@ -109,29 +109,21 @@ public class PanelLogement extends PanelCentral implements ActionListener {
 			this.txtsurface.setText("");
 			this.txtprix.setText("");
 			this.setVisible(false);
-		}else
-		{
-			JOptionPane.showMessageDialog(this, "Attention aux mot de passe !");
-			
 		}
 	}
 
-	public void setVisible(boolean action) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	/*Lister*/
 	private JTable uneTable ;
 	private Tableau unTableau ;
 	
-	public PanelLogement() extends PanelCentral {
+	public void Lister() extends PanelCentral {
 		super(Color.green);
 		
 		String entetes [] = {"idservice","adresse","datedebut","datefin","nettoyage","proprietaire","surface","prix"}; 
 		
 		//instancier le tableau
-		this.unTableau = new Tableau(entetes, Corsair.getDonnees(Corsair.selectAllLogements()));
+		this.unTableau = new Tableau(entetes, Corsair.getDonnees(Corsair.selectAllHebergements()));
 				
 		this.uneTable = new JTable(this.unTableau);
 		
