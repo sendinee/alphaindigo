@@ -18,7 +18,7 @@ public class Supprimer extends PanelCentral implements ActionListener
 {
 	private JComboBox cbxRef = new JComboBox(); 
 	private JButton btOk = new JButton("Supprimer"); 
-	private JLabel lbtitre = new JLabel("Supression par référence : ");
+	private JLabel lbtitre = new JLabel("Supression par rÃ©fÃ©rence : ");
 	private Object unClient; 
 			
 	public Supprimer() {
@@ -33,7 +33,7 @@ public class Supprimer extends PanelCentral implements ActionListener
 		this.btOk.setBounds(330, 50, 100, 30);
 		this.add(this.btOk); 
 		
-		//On appelle la méthode pour remplir le select
+		//On appelle la mÃ©thode pour remplir le select
 		this.remplirCbx(); 
 		
 		//rendre le bouton cliquable 
@@ -47,9 +47,7 @@ public class Supprimer extends PanelCentral implements ActionListener
 		
 		for(Client unClientt :lesClients)
 		{
-			this.cbxRef.addItem(unClient.getIdClient() + " | " + unClient.getNom() + " | " + unClient.getPrenom()
-			 + " | " + unClient.getAdresse() + " | " + unClient.getEmail() + " | " + unClient.getNumero_passeport()
-			 + " | " + unClient.getTel() + " | " + unClient.getMdp() + " | " + unClient.getAge());
+			this.cbxRef.addItem(unClient.getIdClient() + " | " + unClient.getNom());
 		}
 		
 	}
@@ -65,8 +63,8 @@ public class Supprimer extends PanelCentral implements ActionListener
 			
 			if(retour == 0)
 			{
-				Corsair.deleteClient();
-				JOptionPane.showMessageDialog(this, "Suppresion réussie"); 
+				Corsair.deleteClient(idclient);
+				JOptionPane.showMessageDialog(this, "Suppresion rÃ©ussie"); 
 				this.cbxRef.removeItem(chaine);
 			}
 		}
