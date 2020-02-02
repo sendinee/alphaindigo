@@ -5,9 +5,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.mysql.cj.xdevapi.Client;
-
+import controleur.Client;
+import controleur.Location;
+import controleur.Logement;
 import controleur.User;
+import controleur.Vol;
 
 public class Modele 
 {
@@ -17,7 +19,7 @@ public class Modele
 	{
 		String requete ="insert into client values ('"+unClient.getIdclient()+"','"+unClient.getNom()+"','"+unClient.getPrenom()+"','"
 				+unClient.getAdresse()+"', '"+unClient.getEmail()+"','"+unClient.getNumero_passeport()+"','"+unClient.getTel()+"','"
-				+unClient.getMdp()+"','"+unClient.getAge()+"';";
+				+unClient.getMdp()+"','"+unClient.getAge()+");";
 		try
 		{
 			uneBdd.seConnecter();
@@ -104,8 +106,8 @@ public class Modele
 	/*Vol*/
 	public static void insertVol (Vol unVol)
 	{
-			String requete = "insert into vol values ('"+unVol.getIdVol()+"','"+unVol.getNom()+"','"+unVol.getDateDepart()+"',"
-				+ "'"+unVol.getHeureDepart()+"','"+unVol.getDateArrivee()+"','"+unVol.getHeureArrivee()+"','"+unVol.getDateArrivee()+"','"+unVol.getIdAeroport()+"','"+unVol.getIdAvion()+"');";
+			String requete = "insert into vol values ('"+unVol.getIdvol()+"','"+unVol.getNom()+"','"+unVol.getDatedepart()+"','"
+				+ "','"+unVol.getHeuredepart()+"','"+unVol.getDatearrivee()+"','"+unVol.getHeurearrivee()+"','"+unVol.getDatearrivee()+"','"+unVol.getIdaeroprt()+"','"+unVol.getIdavion()+"','"+unVol.getIdaeroport_arriver()+"');";
 	
 		try
 		{
@@ -148,8 +150,8 @@ public class Modele
 			Statement unStat= uneBdd.getMaConnexion().createStatement(); 
 			ResultSet desRes = unStat.executeQuery(requete); 
 			while(desRes.next()) {
-				Vol unVol = new Vol (desRes.getString("idvol"), desRes.getString("nom"), desRes.getInt("datedepart"), desRes.getFloat("heuredepart"), 
-					desRes.getInt("datearrivee"), desRes.getInt("heurearrivee"), desRes.getInt("idaeroport"), desRes.getInt("idavion"));
+				Vol unVol = new Vol (desRes.getString("idvol"), desRes.getString("nom"), desRes.getString("datedepart"), desRes.getString("heuredepart"), 
+					desRes.getString("datearrivee"), desRes.getString("heurearrivee"), desRes.getString("idaeroport"), desRes.getString("idavion"), desRes.getString("idaeroport_arriver"));
 				lesVols.add(unVol);
 			}
 			
@@ -174,8 +176,8 @@ public class Modele
 			Statement unStat= uneBdd.getMaConnexion().createStatement(); 
 			ResultSet desRes = unStat.executeQuery(requete); 
 			while(desRes.next()) {
-				Vol unVol = new Vol (desRes.getString("idvol"), desRes.getString("nom"), desRes.getInt("datedepart"), desRes.getFloat("heuredepart"),
-				 desRes.getInt("datearrivee"), desRes.getInt("heurearrivee"), desRes.getInt("idaeroport"), desRes.getInt("idavion"));
+				Vol unVol = new Vol (desRes.getString("idvol"), desRes.getString("nom"), desRes.getString("datedepart"), desRes.getString("heuredepart"),
+				 desRes.getString("datearrivee"), desRes.getString("heurearrivee"), desRes.getString("idaeroport"), desRes.getString("idavion"), desRes.getString("idaeroport_arriver"));
 				lesVols.add(unVol);
 			}
 			
@@ -194,9 +196,9 @@ public class Modele
 	/*Logement*/
 	public static void insertLogement (Logement unLogement)
 	{
-		String requete ="insert into logement values ('"+unLogement.getidservice()+"','"+unLogement.getadresse()+"','"+unLogement.getdatedebut()+"','"
-				+unLogement.getdatefin()+"', '"+unLogement.getnettoyage()+"','"+unLogement.getproprietaire()+"','"+unLogement.getsurface()+"','"
-				+unLogement.getprix()+"';";
+		String requete ="insert into logement values ('"+unLogement.getIdservice()+"','"+unLogement.getAdresse()+"','"+unLogement.getDatedebut()+"','"
+				+unLogement.getDatedebut()+"', '"+unLogement.getNettoyage()+"','"+unLogement.getProprietaire()+"','"+unLogement.getSurface()+"','"
+				+unLogement.getPrix()+");";
 		try
 		{
 			uneBdd.seConnecter();
@@ -222,8 +224,8 @@ public class Modele
 			ResultSet desRes = unStat.executeQuery(requete);
 			while(desRes.next())
 			{
-				Logement unLogement = new Logement (desRes.getString("idservice"),desRes.getString("adresse"), desRes.getString("datedebut"),desRes.getString("datefin"),desRes.getString("nettoyage"),
-						desRes.getString("proprietaire"),desRes.getString("surface"),desRes.getString("prix"));
+				Logement unLogement = new Logement (desRes.getString("idservice"),desRes.getString("nom"), desRes.getString("adresse"), desRes.getString("datedebut"),desRes.getString("datefin"),desRes.getString("nettoyage"),
+						desRes.getString("proprietaire"),desRes.getInt("surface"),desRes.getInt("prix"));
 				lesLogements.add(unLogement);
 			}
 			desRes.close();
@@ -258,8 +260,8 @@ public class Modele
 	/*Location*/
 	public static void insertLocation (Location unLocation)
 	{
-			String requete = "insert into Location values ('"+unLocation.getImmatriculation()+"','"+unLocation.getAdresse()+"',"
-				+ "'"+unLocation.getDatedebut)+"','"+unLocation.getDatefin()+"','"+unLocation.getNettoyage()+"','"+unLocation.getSurface()+"','"+unLocation.getPrix()+"','"+unLocation.getIdService()+"');";
+			String requete = "insert into Location values ('"+unLocation.getImmatriculation()+"','"+unLocation.getN_parking()+"',"
+				+ "'"+unLocation.getStatut()+"','"+unLocation.getDatedebut()+"','"+unLocation.getDatefin()+"','"+unLocation.getPrix()+"','"+unLocation.getIdservice()+"');";
 	
 		try
 		{
@@ -302,8 +304,8 @@ public class Modele
 			Statement unStat= uneBdd.getMaConnexion().createStatement(); 
 			ResultSet desRes = unStat.executeQuery(requete); 
 			while(desRes.next()) {
-				Location unLocation = new Location (desRes.getString("immatriculation"), desRes.getString("adresse"), desRes.getInt("datedebut"), desRes.getFloat("datefin"), 
-					desRes.getInt("nettoyage"), desRes.getInt("prix"), desRes.getInt("idservice"));
+				Location unLocation = new Location (desRes.getString("immatriculation"), desRes.getInt("n_parking"), desRes.getString("statut"), desRes.getString("datedebut"), 
+					desRes.getString("datefin"), desRes.getInt("prix"), desRes.getString("idservice"));
 				lesLocations.add(unLocation);
 			}
 			
@@ -328,8 +330,8 @@ public class Modele
 			Statement unStat= uneBdd.getMaConnexion().createStatement(); 
 			ResultSet desRes = unStat.executeQuery(requete); 
 			while(desRes.next()) {
-				Location unLocation = new Location (desRes.getString("immatriculation"), desRes.getString("adresse"), desRes.getInt("datedebut"), desRes.getFloat("datefin"),
-				 desRes.getInt("nettoyage"), desRes.getInt("prix"), desRes.getInt("idservice")));
+				Location unLocation = new Location (desRes.getString("immatriculation"), desRes.getInt("n_parking"), desRes.getString("statut"), desRes.getString("datedebut"),
+				 desRes.getString("datefin"), desRes.getInt("prix"), desRes.getString("idservice"));
 				lesLocations.add(unLocation);
 			}
 			
@@ -395,19 +397,3 @@ public class Modele
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
