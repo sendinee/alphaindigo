@@ -18,7 +18,7 @@ import controleur.Corsair;
 import controleur.Tableau;
 
 
-public class PanelHebergement extends PanelCentral implements ActionListener {
+public class PanelLogement extends PanelCentral implements ActionListener {
 	
 	/*Ajouter*/
 	private JTextField txtidservice = new JTextField();
@@ -33,7 +33,7 @@ public class PanelHebergement extends PanelCentral implements ActionListener {
 	private JButton btEnregistrer = new JButton("Enregistrer");
 	private JButton btAnnuler = new JButton("Annuler");
 	
-	public PanelHebergement() {
+	public PanelLogement() {
 		super(Color.cyan);
 		
 		this.setLayout(new GridLayout(5,2));
@@ -83,13 +83,13 @@ public class PanelHebergement extends PanelCentral implements ActionListener {
 		}
 		
 		{
-			Hebergement unHebergement = new Hebergement (
+			Logement unLogement = new Logement (
 					this.txtidservice.getText(), this.txtadresse.getText(), this.txtdatedebut.getText(), 
 					this.txtdatefin.getText(), this.txtnettoyage.getText(),this.txtproprietaire.getText(),
 					this.txtsurface.getText(), this.txtprix.getText()
 					);
 			
-			Corsair.insertHebergement(unHebergement);
+			Corsair.insertLogement(unLogement);
 			JOptionPane.showMessageDialog(this,"Insertion réussie");
 			//mise à jouer de la JTable via le Tableau
 			
@@ -123,7 +123,7 @@ public class PanelHebergement extends PanelCentral implements ActionListener {
 		String entetes [] = {"idservice","adresse","datedebut","datefin","nettoyage","proprietaire","surface","prix"}; 
 		
 		//instancier le tableau
-		this.unTableau = new Tableau(entetes, Corsair.getDonnees(Corsair.selectAllHebergements()));
+		this.unTableau = new Tableau(entetes, Corsair.getDonnees(Corsair.selectAllLogements()));
 				
 		this.uneTable = new JTable(this.unTableau);
 		
