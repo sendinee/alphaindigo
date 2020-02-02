@@ -14,7 +14,7 @@ import controleur.Corsair;
 public class PanelMenu extends JPanel implements ActionListener
 {
 	private JButton btClient = new JButton("Client");
-	private JButton btHebergement= new JButton("Hebergement");
+	private JButton btLogement= new JButton("Logement");
 	private JButton btLocation = new JButton("Location");
 	private JButton btVol = new JButton("Vol");
 	private JButton btQuitter = new JButton("Quitter");
@@ -28,14 +28,14 @@ public class PanelMenu extends JPanel implements ActionListener
 		
 		this.add (this.btProfil);
 		this.add (this.btClient);
-		this.add (this.btHebergement);
+		this.add (this.btLogement);
 		this.add (this.btLocation);
 		this.add (this.btVol);
 		this.add (this.btQuitter);
 		
 		this.btProfil.addActionListener(this);
 		this.btClient.addActionListener(this);
-		this.btHebergement.addActionListener(this);
+		this.btLogement.addActionListener(this);
 		this.btLocation.addActionListener(this);
 		this.btVol.addActionListener(this);
 		this.btQuitter.addActionListener(this);
@@ -49,7 +49,7 @@ public class PanelMenu extends JPanel implements ActionListener
 		{
 			Generale.setVisibleProfil(true);
 			Generale.setVisibleClient(false);
-			Generale.setVisibleHebergement(false);
+			Generale.setVisibleLogement(false);
 			Generale.setVisibleLocation(false);
 			Generale.setVisibleVol(false);
 		}
@@ -58,15 +58,15 @@ public class PanelMenu extends JPanel implements ActionListener
 		{
 			Generale.setVisibleProfil(false);
 			Generale.setVisibleClient(true);
-			Generale.setVisibleHebergement(false);
+			Generale.setVisibleLogement(false);
 			Generale.setVisibleLocation(false);
 			Generale.setVisibleVol(false);
 		}
 		
-		else if (e.getSource() == this.btHebergement)
+		else if (e.getSource() == this.btLogement)
 		{
 			Generale.setVisibleClient(false);
-			Generale.setVisibleHebergement(true);
+			Generale.setVisibleLogement(true);
 			Generale.setVisibleLocation(false);
 			Generale.setVisibleVol(false);
 		}
@@ -75,14 +75,14 @@ public class PanelMenu extends JPanel implements ActionListener
 		{
 			Generale.setVisibleProfil(false);
 			Generale.setVisibleClient(false);
-			Generale.setVisibleHebergement(false);
+			Generale.setVisibleLogement(false);
 			Generale.setVisibleLocation(false);
 			Generale.setVisibleVol(true);
 		}else if (e.getSource() == this.btLocation)
 		{
 			Generale.setVisibleProfil(false);
 			Generale.setVisibleClient(false);
-			Generale.setVisibleHebergement(false);
+			Generale.setVisibleLogement(false);
 			Generale.setVisibleLocation(true);
 			Generale.setVisibleVol(false);
 		}
@@ -92,7 +92,7 @@ public class PanelMenu extends JPanel implements ActionListener
 			int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous quitter l'application ?", "Quitter Application", JOptionPane.YES_NO_OPTION);
 			if (retour == 0)
 			{
-				Corsair.fin(); //fin de générale
+				Corsair.fin(); //fin de gÃ©nÃ©rale
 				Corsair.rendreVisibleConnexion(true);
 			}
 		}
