@@ -20,7 +20,7 @@ public class Corsair {
 		}
 	}
 	
-	public static void main (String[] args)
+	public static void main (String[] connexion)
 	{
 		uneConnexion = new Connexion ();
 	}
@@ -46,9 +46,9 @@ public class Corsair {
 		return Modele.selectAllClients();
 	}
 	
-	public static void deleteClient(String ref)
+	public static void deleteClient(String idclient)
 	{
-		Modele.delelteClient(ref);
+		Modele.delelteClient(idclient);
 	}
 	
 	public static ArrayList<Client> findAllProduits(String mot)
@@ -89,3 +89,4 @@ public class Corsair {
 	}
 
 }
+
