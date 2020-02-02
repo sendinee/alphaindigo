@@ -4,7 +4,6 @@ public class User {
 
 	private int iduser; 
 	private String nom, prenom, login, mdp, avatar;
-	private Object user;
 	
 	public User(int iduser, String nom, String prenom, String login, String mdp, String avatar) {
 		super();
