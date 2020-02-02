@@ -2,8 +2,6 @@ package controleur;
 
 import java.util.ArrayList;
 
-import com.mysql.cj.xdevapi.Client;
-
 import modele.Modele;
 import vue.Connexion;
 import vue.Generale;
@@ -40,7 +38,7 @@ public class Corsair {
 		Modele.insertClient(unClient);
 	}
 	
-	public static ArrayList<Client> selectAllClients ()
+	public static ArrayList<controleur.Client> selectAllClients ()
 	{
 		//le controleur qui appelle le modele 
 		return Modele.selectAllClients();
@@ -51,7 +49,7 @@ public class Corsair {
 		Modele.delelteClient(idclient);
 	}
 	
-	public static ArrayList<Client> findAllProduits(String mot)
+	public static ArrayList<controleur.Client> findAllProduits(String mot)
     {
         return Modele.findAllClients(mot);
     }
@@ -89,4 +87,3 @@ public class Corsair {
 	}
 
 }
-
