@@ -137,3 +137,10 @@ public class PanelLocation extends PanelCentral implements ActionListener {
 	}
 
 }
+
+
+
+
+
+
+
