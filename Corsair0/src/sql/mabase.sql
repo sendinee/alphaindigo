@@ -67,6 +67,51 @@ CREATE TABLE user(
         primary key(iduser)
 );
 
+/*trigger*/
+CREATE TRIGGER after_insert_panier before after
+ON client FOR EACH ROW
+corps_trigger;
+INSERT INTO panier (client_id, vol_id, date_reservation, prix, paye) 
+VALUES (12, 15, NOW(), 200.00, FALSE);
+-- Trigger déclenché par l'insertion
+DELIMITER &
+CREATE TRIGGER before_insert_client BEFORE INSERT
+ON Client FOR EACH ROW
+BEGIN
+    -- Instructions
+END &
+
+-- Trigger déclenché par la modification
+CREATE TRIGGER before_update_client BEFORE UPDATE
+ON Client FOR EACH ROW
+BEGIN
+    -- Instructions
+END &
+DELIMITER ;
+INSERT INTO Erreur (erreur) VALUES ('Erreur : paye doit valoir TRUE (1) ou FALSE (0).');
+
+DELIMITER &
+CREATE TRIGGER before_insert_panier BEFORE INSERT
+ON Adoption FOR EACH ROW
+BEGIN
+    IF NEW.paye != TRUE       -- ni TRUE
+    AND NEW.paye != FALSE     -- ni FALSE
+      THEN
+        INSERT INTO Erreur (erreur) VALUES ('Erreur : paye doit valoir TRUE (1) ou FALSE (0).');
+    END IF;
+END &
+
+CREATE TRIGGER before_update_panier BEFORE UPDATE
+ON Adoption FOR EACH ROW
+BEGIN
+    IF NEW.paye != TRUE       -- ni TRUE
+    AND NEW.paye != FALSE     -- ni FALSE
+      THEN
+        INSERT INTO Erreur (erreur) VALUES ('Erreur : paye doit valoir TRUE (1) ou FALSE (0).');
+    END IF;
+END &
+DELIMITER ;
+
 /*Les clients*/
 INSERT INTO client VALUES(NULL,"Tang","Vaesna", "21 rue Gabriel Sartrouville 78500","vaesna@gmail.com","12345678","0780905636","vaesna","20");
 INSERT INTO client VALUES(NULL,"Walter","Trent", "7845 Cecilia St CA 90221","wtrent@gmail.com","USA546T3S","8085550146","walter","20");
@@ -198,7 +243,7 @@ INSERT INTO logement VALUES (19,"2 rue d'Ind&eacute;pendance, 16027 Alegiers, Al
 INSERT INTO logement VALUES (20,"56 Broomfield Macroom CO. Cork, 37I8 Ireland","2019-07-31","2019-08-28","Passable","Michel Sullivan","115","2162");
 INSERT INTO logement VALUES (21,"12 Avenue Cheikh Anta Diop, 12500 Senegal","2019-05-05","2019-06-19","Terni","Amadou Diop","56","123");
 INSERT INTO logement VALUES (22,"201 Springfield, Untied States of America","2019-02-19","2019-03-29","Propre","Tevis Jason","120","1500");
-INSERT INTO logement VALUES (23,"Truygguag�tu 5, 220 Hafnarifirdi, Iceland","2019-06-22","2019-08-12","Passable","Gu�mundor Armasson","110","2056");
+INSERT INTO logement VALUES (23,"Truygguagötu 5, 220 Hafnarifirdi, Iceland","2019-06-22","2019-08-12","Passable","Guömundor Armasson","110","2056");
 INSERT INTO logement VALUES (24,"Solothurnstrasse 28, 2544 Bettlach, Switzland","2019-01-18","2019-02-06","Bien","Hotel National Zermatt","98","559");
 INSERT INTO logement VALUES (25,"27 Andilina, Triq San Guzepp, 1073 Malta","2019-11-20","2019-12-20","Passable","Dolmen Hotel","153","511");
 
