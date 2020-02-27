@@ -370,8 +370,7 @@ public class Modele
 			
 		}
 			catch(SQLException exp)
-			{
-				System.out.println("Erreur requete :" +requete); 
+			{				System.out.println("Erreur requete :" +requete); 
 			}
 			
 			return unUser; 
