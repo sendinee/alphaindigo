@@ -48,43 +48,105 @@ public class PanelMenu extends JPanel implements ActionListener
 		if (e.getSource() ==  this.btProfil)
 		{
 			Generale.setVisibleProfil(true);
-			Generale.setVisibleAjouter(false);
-			Generale.setVisibleLister(false);
+			Generale.setVisibleAjouterClient(false);
+			Generale.setVisibleAjouterLocation(false);
+			Generale.setVisibleAjouterLogement(false);
+			Generale.setVisibleAjouterUser(false);
+			Generale.setVisibleAjouterVol(false);
+			Generale.setVisibleListerClient(false);
+			Generale.setVisibleListerLocation(false);
+			Generale.setVisibleListerLogement(false);
+			Generale.setVisibleListerUser(false);
+			Generale.setVisibleListerVol(false);
 			Generale.setVisibleRechercher(false);
-			Generale.setVisibleSupprimer(false);
+			Generale.setVisibleSupprimerClient(false);
+			Generale.setVisibleSupprimerLocation(false);
+			Generale.setVisibleSupprimerLogement(false);
+			Generale.setVisibleSupprimerUser(false);
+			Generale.setVisibleSupprimerVol(false);
 		}
 		
 		else if (e.getSource() ==  this.btAjouter)
 		{
 			Generale.setVisibleProfil(false);
-			Generale.setVisibleAjouter(true);
-			Generale.setVisibleLister(false);
+			Generale.setVisibleAjouterClient(true);
+			Generale.setVisibleAjouterLocation(true);
+			Generale.setVisibleAjouterLogement(true);
+			Generale.setVisibleAjouterUser(true);
+			Generale.setVisibleAjouterVol(true);
+			Generale.setVisibleListerClient(false);
+			Generale.setVisibleListerLocation(false);
+			Generale.setVisibleListerLogement(false);
+			Generale.setVisibleListerUser(false);
+			Generale.setVisibleListerVol(false);
 			Generale.setVisibleRechercher(false);
-			Generale.setVisibleSupprimer(false);
+			Generale.setVisibleSupprimerClient(false);
+			Generale.setVisibleSupprimerLocation(false);
+			Generale.setVisibleSupprimerLogement(false);
+			Generale.setVisibleSupprimerUser(false);
+			Generale.setVisibleSupprimerVol(false);
 		}
 		
 		else if (e.getSource() == this.btLister)
 		{
-			Generale.setVisibleAjouter(false);
-			Generale.setVisibleLister(true);
+			Generale.setVisibleProfil(false);
+			Generale.setVisibleAjouterClient(false);
+			Generale.setVisibleAjouterLocation(false);
+			Generale.setVisibleAjouterLogement(false);
+			Generale.setVisibleAjouterUser(false);
+			Generale.setVisibleAjouterVol(false);
+			Generale.setVisibleListerClient(true);
+			Generale.setVisibleListerLocation(true);
+			Generale.setVisibleListerLogement(true);
+			Generale.setVisibleListerUser(true);
+			Generale.setVisibleListerVol(true);
 			Generale.setVisibleRechercher(false);
-			Generale.setVisibleSupprimer(false);
+			Generale.setVisibleSupprimerClient(false);
+			Generale.setVisibleSupprimerLocation(false);
+			Generale.setVisibleSupprimerLogement(false);
+			Generale.setVisibleSupprimerUser(false);
+			Generale.setVisibleSupprimerVol(false);
 		}
 		
-		else if (e.getSource() == this.btSupprimer)
+		else if (e.getSource() == this.btRechercher)
 		{
 			Generale.setVisibleProfil(false);
-			Generale.setVisibleAjouter(false);
-			Generale.setVisibleLister(false);
-			Generale.setVisibleRechercher(false);
-			Generale.setVisibleSupprimer(true);
-		}else if (e.getSource() == this.btRechercher)
-		{
-			Generale.setVisibleProfil(false);
-			Generale.setVisibleAjouter(false);
-			Generale.setVisibleLister(false);
+			Generale.setVisibleAjouterClient(false);
+			Generale.setVisibleAjouterLocation(false);
+			Generale.setVisibleAjouterLogement(false);
+			Generale.setVisibleAjouterUser(false);
+			Generale.setVisibleAjouterVol(false);
+			Generale.setVisibleListerClient(false);
+			Generale.setVisibleListerLocation(false);
+			Generale.setVisibleListerLogement(false);
+			Generale.setVisibleListerUser(false);
+			Generale.setVisibleListerVol(false);
 			Generale.setVisibleRechercher(true);
-			Generale.setVisibleSupprimer(false);
+			Generale.setVisibleSupprimerClient(false);
+			Generale.setVisibleSupprimerLocation(false);
+			Generale.setVisibleSupprimerLogement(false);
+			Generale.setVisibleSupprimerUser(false);
+			Generale.setVisibleSupprimerVol(false);
+			
+		}else if (e.getSource() == this.btSupprimer)
+		{
+			Generale.setVisibleProfil(false);
+			Generale.setVisibleAjouterClient(false);
+			Generale.setVisibleAjouterLocation(false);
+			Generale.setVisibleAjouterLogement(false);
+			Generale.setVisibleAjouterUser(false);
+			Generale.setVisibleAjouterVol(false);
+			Generale.setVisibleListerClient(false);
+			Generale.setVisibleListerLocation(false);
+			Generale.setVisibleListerLogement(false);
+			Generale.setVisibleListerUser(false);
+			Generale.setVisibleListerVol(false);
+			Generale.setVisibleRechercher(false);
+			Generale.setVisibleSupprimerClient(true);
+			Generale.setVisibleSupprimerLocation(true);
+			Generale.setVisibleSupprimerLogement(true);
+			Generale.setVisibleSupprimerUser(true);
+			Generale.setVisibleSupprimerVol(true);
 		}
 		
 		else if (e.getSource() == this.btQuitter)
@@ -92,7 +154,7 @@ public class PanelMenu extends JPanel implements ActionListener
 			int retour = JOptionPane.showConfirmDialog(this, "Voulez-vous quitter l'application ?", "Quitter Application", JOptionPane.YES_NO_OPTION);
 			if (retour == 0)
 			{
-				Corsair.fin(); //fin de générale
+				Corsair.fin(); //fin de gÃ©nÃ©rale
 				Corsair.rendreVisibleConnexion(true);
 			}
 		}
