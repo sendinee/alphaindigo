@@ -20,7 +20,7 @@ public class Bdd
 	
 	public void chargerPilote () 
 	{
-		//cette methode vérifie la presence ou non du driver jdbc 
+		//cette methode vÃ©rifie la presence ou non du driver jdbc 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -38,7 +38,7 @@ public class Bdd
 			this.maConnexion = DriverManager.getConnection(url, this.user, this.mdp);
 		}
 		catch (SQLException  exp) {
-			System.out.println("Erreur de connexion à URL : "+url);
+			System.out.println("Erreur de connexion Ã  URL : "+url);
 		}
 	}
 	public void seDeConnecter () 
@@ -60,10 +60,3 @@ public class Bdd
 		return this.maConnexion; 
 	}
 }
-
-
-
-
-
-
-
