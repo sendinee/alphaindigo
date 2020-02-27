@@ -1,2 +1,0 @@
-# alphaindigo
-GitHub Pages
